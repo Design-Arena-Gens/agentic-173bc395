@@ -1,0 +1,87 @@
+/* Global Styles */
+:root {
+  --bg: #0b1020;
+  --panel: #121a33;
+  --panel-2: #0f1630;
+  --text: #e9f0ff;
+  --muted: #9fb4ff;
+  --accent: #6ea1ff;
+  --op: #ffb04d;
+  --util: #64748b;
+  --equals: #22c55e;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans Arabic, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(160deg, #0b1020 0%, #111a3a 100%);
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.display {
+  text-align: left;
+  direction: ltr; /* to align numbers visually */
+  padding: 28px 22px;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text);
+  background: radial-gradient(120px 60px at 90% 10%, rgba(255,255,255,0.06), transparent 60%),
+              radial-gradient(120px 60px at 10% 10%, rgba(255,255,255,0.04), transparent 60%);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  background: rgba(255,255,255,0.02);
+  transition: transform 0.06s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.05), 0 6px 16px rgba(0,0,0,0.25);
+  user-select: none;
+  cursor: pointer;
+}
+
+.btn:hover { background: rgba(255,255,255,0.05); }
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+.btn.util { background: rgba(148,163,184,0.15); color: #dae3f0; }
+.btn.op { background: rgba(255,176,77,0.18); color: #ffd8a6; }
+.btn.equals { background: rgba(34,197,94,0.18); color: #c6f6d5; }
+
+.span-2 { grid-column: span 2 / span 2; }
+
+@media (max-width: 380px) {
+  .display { font-size: 36px; padding: 22px 18px; }
+  .btn { font-size: 18px; padding: 14px 10px; }
+}
